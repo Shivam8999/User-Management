@@ -1,0 +1,58 @@
+{
+  "name": "usermanagementbackend",
+  "version": "1.0.0",
+  "description": "This is backend for user management i.e login,logout,reset password with otp, register, terminate a specific session, block a particular user until further notice, validate all the requests (middleware)",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shivam8999/usermanagementbackend.git"
+  },
+  "author": "Shivam Vishwakarma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shivam8999/usermanagementbackend/issues"
+  },
+  "homepage": "https://github.com/Shivam8999/usermanagementbackend#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "express-validator": "^7.2.1",
+    "google-auth-library": "^10.1.0",
+    "googleapis": "^153.0.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose-aggregate-paginate-v2": "^1.1.4",
+    "mongoose-paginate-v2": "^1.9.1",
+    "moongose": "^1.0.0",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.10",
+    "open": "^10.2.0",
+    "pino": "^9.7.0",
+    "pino-http": "^10.5.0",
+    "pino-pretty": "^13.0.0",
+    "redis": "^5.6.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.31.0",
+    "jest": "^30.0.5",
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.3"
+  }
+}

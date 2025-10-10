@@ -1,0 +1,97 @@
+version: '3.8'
+
+services:
+  # User Management Backend
+  backend:
+    build:
+      context: .
+      target: production
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DB_URL=mongodb://mongo:27017/userManagement
+      - REDIS_URL=redis://redis:6379
+      - REFRESHTOKEN_SECRET=your_refresh_token_secret_here
+      - ACCESSTOKEN_SECRET=your_access_token_secret_here
+      - GOOGLE_CLIENT_ID=your_google_client_id
+      - GOOGLE_CLIENT_SECRET=your_google_client_secret
+      - REDIRECT_URI=http://localhost:3000/api/v1/auth/google/callback
+    depends_on:
+      - mongo
+      - redis
+    volumes:
+      - ./public/uploads:/app/public/uploads
+      - ./logs:/app/logs
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  # MongoDB Database
+  mongo:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=userManagement
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  # Redis Cache
+  redis:
+    image: redis:7.2-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  # Development service (optional)
+  backend-dev:
+    build:
+      context: .
+      target: development
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DB_URL=mongodb://mongo:27017/userManagement
+      - REDIS_URL=redis://redis:6379
+      - REFRESHTOKEN_SECRET=dev_refresh_token_secret
+      - ACCESSTOKEN_SECRET=dev_access_token_secret
+      - GOOGLE_CLIENT_ID=your_google_client_id
+      - GOOGLE_CLIENT_SECRET=your_google_client_secret
+      - REDIRECT_URI=http://localhost:3001/api/v1/auth/google/callback
+    depends_on:
+      - mongo
+      - redis
+    volumes:
+      - ./public/uploads:/app/public/uploads
+      - ./logs:/app/logs
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped
+    networks:
+      - app-network
+    profiles:
+      - dev
+
+volumes:
+  mongo_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge 

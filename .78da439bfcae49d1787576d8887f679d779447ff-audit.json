@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "/media/shivam/vol3/opensourceProjects/userManagementBackend/.78da439bfcae49d1787576d8887f679d779447ff-audit.json",
+    "files": [
+        {
+            "date": 1757478199980,
+            "name": "/media/shivam/vol3/opensourceProjects/userManagementBackend/app-2025-09-10.log",
+            "hash": "a373e81ab0ba521a42de31ef7c0451389a782bbc864790e09352c578c859317a"
+        },
+        {
+            "date": 1757564705936,
+            "name": "/media/shivam/vol3/opensourceProjects/userManagementBackend/app-2025-09-11.log",
+            "hash": "84923237a06fe2034b3c2c54103e2f68a6dc7d925b5de6e25b0b77f0b0e06298"
+        }
+    ],
+    "hashType": "sha256"
+}
