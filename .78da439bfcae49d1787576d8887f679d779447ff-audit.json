@@ -6,14 +6,9 @@
     "auditLog": "/media/shivam/vol3/opensourceProjects/userManagementBackend/.78da439bfcae49d1787576d8887f679d779447ff-audit.json",
     "files": [
         {
-            "date": 1757478199980,
-            "name": "/media/shivam/vol3/opensourceProjects/userManagementBackend/app-2025-09-10.log",
-            "hash": "a373e81ab0ba521a42de31ef7c0451389a782bbc864790e09352c578c859317a"
-        },
-        {
-            "date": 1757564705936,
-            "name": "/media/shivam/vol3/opensourceProjects/userManagementBackend/app-2025-09-11.log",
-            "hash": "84923237a06fe2034b3c2c54103e2f68a6dc7d925b5de6e25b0b77f0b0e06298"
+            "date": 1760170176796,
+            "name": "/media/shivam/vol3/opensourceProjects/userManagementBackend/app-2025-10-11.log",
+            "hash": "cf8b6762ff1a6de8272c9fe2841a9637b2f6737a3b54b871e03229ad91ed3356"
         }
     ],
     "hashType": "sha256"

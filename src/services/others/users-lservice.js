@@ -8,7 +8,7 @@ const {
       createUser, getUser, updateUser, deleteUser
     } = require("../redis/users-rservice")
 
-const createUserLService = async ({name,email,encpassword,role,phone,isVerified,role,status})=>{
+const createUserLService = async ({name,email,encpassword,role,phone,isVerified,status})=>{
     try {
         const users = await Users.create({ Name:name, Email:email, Password: encpassword,Role: role,Address:address,Phone:phone,status, isVerified})
         // email,status,name,role and isVerified
@@ -166,7 +166,6 @@ const deleteUserLService = async (userId) => {
   }
 };
 
-
 async function getUserByEmail(email) {
   try {
     // Step 1: resolve userId via Redis
@@ -200,10 +199,10 @@ async function getUserByEmail(email) {
 
     await createUser(dbUser._id.toString(), redisData);
     await setUserEmail(dbUser.Email, dbUser._id.toString());
-
     return redisData;
   } catch (error) {
     throw new Error(error);
   }
 }
+
 module.exports = {createUserLService, updateUserLService, getBasicUserData, getUserDirectFromDB, isEmailRegistered, deleteUserLService,getUserByEmail }

@@ -16,7 +16,6 @@ async function updateSession(sessionId, fields) {
 }
 
 async function deleteSession(sessionId) {
-  
   return await getRedisClient.del(`sessions:${sessionId}`);
 }
 

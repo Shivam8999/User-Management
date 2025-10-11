@@ -13,6 +13,13 @@ const resStatusHandler = async (req, res,next) => {
         })
     }
 
+    res.notfound = (data={},message="Not Found")=>{
+        return res.status(400).json({status:400,
+            message,
+            data
+        })
+    }
+
     res.unauthorized = (data={},message="Unauthorized For This Operation")=>{
         return res.status(401).json({status:401,
             message,

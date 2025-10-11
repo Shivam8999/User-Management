@@ -35,7 +35,7 @@
         }
     }
 
-    //Delete multiple sessions
+    //Delete multiple sessions from db and redis both
     const deleteSessionsBySessionIds = async ({sessionIds})=>{
         try {
             sessionIds?.map( async (sessionId)=>{
@@ -60,7 +60,7 @@
             userIds?.map( async (userId)=>{
                 //this try catch to ensure that even if one fails others are executed
                 try {
-                    const sessions = await sessionsRService.sessionsConnectRService(userId);
+                    const sessions = await sessionsConnectRService.getUserSessions(userId);
 
                     await sessionsModel.findOneAndUpdate({userId},{'$set':{isDeleted:true}});
 
