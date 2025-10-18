@@ -34,6 +34,10 @@ docker run -p 3000:3000 \
   -e REDIS_URL=redis://your-redis-host:6379 \
   -e REFRESHTOKEN_SECRET=your_secret_here \
   -e ACCESSTOKEN_SECRET=your_secret_here \
+  -e SERVER_PORT=your_port_number_here \
+  -e GOOGLE_CLIENT_ID=google_client_id \
+  -e GOOGLE_CLIENT_SECRET=google_client_secret_here \
+  -e REDIRECT_URI=google_redirect_url \
   user-management-backend
 ```
 
